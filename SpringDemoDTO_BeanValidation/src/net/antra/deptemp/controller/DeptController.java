@@ -3,6 +3,7 @@ package net.antra.deptemp.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -48,11 +49,17 @@ public class DeptController {
 		//dValidator.validate(department, res);
 		if(res.hasErrors()){
 			model.addAttribute("fail", "Sorry, it failed to add a department.");
-			
 		}else{
-		 model.addAttribute("success", "Successfully add a department.");
+			model.addAttribute("success", "Successfully add a department.");
+//			throw new RuntimeException();
 		}
+
 		return "manageDept";
 	}
-	 
+	@ExceptionHandler(Exception.class)
+    //@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public String handleValidationException(Exception e){
+        
+        return "error";
+    }
 }

@@ -1,13 +1,12 @@
 package net.antra.deptemp.vo;
 
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 public class DeptVO {
-	@Length(min = 5, max = 10,message = "123123name length is not that good")
+	@Length(min = 5, max = 10,message = "name length is not that good")
 	private String name;
+	@Email
 	private String email;
 	private String desc;
 	private String contact;

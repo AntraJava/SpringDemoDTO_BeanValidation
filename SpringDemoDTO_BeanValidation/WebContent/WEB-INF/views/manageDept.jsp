@@ -22,8 +22,8 @@
             
 			<form:form action="addDept" method="POST" commandName='department'>
 			 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			 <font color="red"><form:errors path="*"></form:errors></font><br/>
-			 
+<%-- 			 <font color="red"><form:errors path="*"></form:errors></font><br/>
+ --%>			 
 			<div class="col-lg-3">
 				<label for="name">Name:</label>
 			    <form:input type="text" class="form-control" path="name"  placeholder="Name" required="required"/>
